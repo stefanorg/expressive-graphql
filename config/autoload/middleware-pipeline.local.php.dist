@@ -1,0 +1,20 @@
+<?php
+
+use PhpMiddleware\PhpDebugBar\PhpDebugBarMiddleware;
+use PhpMiddleware\PhpDebugBar\PhpDebugBarMiddlewareFactory;
+
+return [
+    'dependencies' => [
+        'factories' => [
+            PhpDebugBarMiddleware::class => PhpDebugBarMiddlewareFactory::class,
+        ],
+    ],
+    'middleware_pipeline' => [
+        [
+            'middleware' => [
+                PhpDebugBarMiddleware::class,
+            ],
+            'priority' => 1000,
+        ],
+    ],
+];
