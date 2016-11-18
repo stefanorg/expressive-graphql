@@ -5,42 +5,43 @@ namespace App\Console;
 use Youshido\GraphQL\Execution\Processor;
 use Youshido\GraphQL\Schema\Schema;
 use Zend\Console\Adapter\AdapterInterface as Console;
+use Zend\Diactoros\Request;
 use ZF\Console\Route;
 
-class Test {
+class Test
+{
 
 
-  /**
-   * @var Schema
-   */
-  private $schema;
+    /**
+     * @var Schema
+     */
+    private $schema;
 
-  /**
-   * Test constructor.
-   */
-  public function __construct(Schema $schema)
-  {
-    $this->schema = $schema;
-  }
+    private $processor;
 
-  public function __invoke(Route $route, Console $console) : int
-  {
+    /**
+     * Test constructor.
+     */
+    public function __construct(Processor $processor)
+    {
+        $this->processor = $processor;
+    }
 
-      $console->write('Test console action ... ');
-      $query =<<<EOQ
+    public function __invoke(Route $route, Console $console) : int
+    {
+        $console->write('Test console action ... ');
+        $query = <<<EOQ
 {
   currentTime
 }
 EOQ;
 
-      $processor = new Processor($this->schema);
+        $this->processor->processPayload('{ currentTime }');
 
-      $processor->processPayload('{ currentTime }');
+        $data = $this->processor->getResponseData();
 
-      $data = $processor->getResponseData();
+        $console->write(json_encode($data));
 
-      $console->write(json_encode($data));
-
-      return 0;
-  }
+        return 0;
+    }
 }

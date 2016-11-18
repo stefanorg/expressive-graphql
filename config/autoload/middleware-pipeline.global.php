@@ -4,6 +4,9 @@ use Zend\Expressive\Helper;
 
 return [
     'dependencies' => [
+        'invokables' => [
+            \GraphQLMiddleware\Error\GraphQLErrorHandler::class => \GraphQLMiddleware\Error\GraphQLErrorHandler::class,
+        ],
         'factories' => [
             Helper\ServerUrlMiddleware::class => Helper\ServerUrlMiddlewareFactory::class,
             Helper\UrlHelperMiddleware::class => Helper\UrlHelperMiddlewareFactory::class
@@ -60,7 +63,6 @@ return [
 
         'error' => [
             'middleware' => [
-                // Add error middleware here.
             ],
             'error'    => true,
             'priority' => -10000,

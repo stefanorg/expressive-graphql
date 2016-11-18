@@ -1,0 +1,8 @@
+#Data only container
+data_container:
+    image: stefanorg/data
+    volumes:
+       #container configuration
+       - /PATH/TO/MY/PROJECT/DIR:/home/dockerdev/app
+       - /PATH/TO/MY/HOME/DIR/.composer:/home/dockerdev/.composer
+       - /PATH/TO/MY/HOME/DIR/.ssh:/home/dockerdev/.ssh

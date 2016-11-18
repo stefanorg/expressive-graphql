@@ -1,0 +1,36 @@
+#Data only container
+data:
+  extends:
+    file: docker-compose.local.yml
+    service: data_container
+
+#Mysql server
+mysql:
+  image: mysql:latest
+  expose:
+    - "3306"
+  ports:
+    - "3306:3306"
+  volumes_from:
+    - data
+  environment:
+    MYSQL_DATABASE: app
+    MYSQL_USER: appuser
+    MYSQL_PASSWORD: apppwd
+    MYSQL_ROOT_PASSWORD: 123
+
+
+#Web layer
+web:
+    #Build image form docker\Dockerfile
+    build: docker
+    ports:
+        - "80:80"
+    links:
+        - mysql
+    volumes_from:
+        - data
+    privileged: true
+    environment:
+      DEV_UID: 1001
+      DEV_GID: 1001

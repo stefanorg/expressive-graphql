@@ -21,7 +21,7 @@ return [
             \Doctrine\ORM\EntityManager::class        => \ContainerInteropDoctrine\EntityManagerFactory::class,
             Application::class                        => ApplicationFactory::class,
             Helper\UrlHelper::class                   => Helper\UrlHelperFactory::class,
-            \App\Factory\SchemaFactory::class         => \App\Factory\SchemaFactory::class,
+
             \App\Console\Test::class                  => \App\Console\TestFactory::class
         ],
     ],

@@ -8,7 +8,6 @@
 
 namespace App\Console;
 
-use App\Factory\SchemaFactory;
 use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
 use Zend\ServiceManager\Exception\ServiceNotCreatedException;
@@ -32,9 +31,9 @@ class TestFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        $schema = $container->get(SchemaFactory::class);
+        $processor = $container->get("graphql.processor");
 
-        $test = new Test($schema);
+        $test = new Test($processor);
 
         return $test;
     }
