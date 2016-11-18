@@ -22,10 +22,13 @@ Opening your browser to `http://localhost` or your docker environment address, y
 You can send:
 
  * `GET` request to the `/graphql` uri 
+ 
  ```
  http://localhost/graphql?query={todos}
  ```
+ 
  * `POST` request using the `application/graphql` header
+ 
  ```
  curl -X POST -H "Content-Type: application/json" -H "Content-Type: application/graphql" -d '{
  	todos {
