@@ -1,8 +1,0 @@
-#Data only container
-data_container:
-    image: stefanorg/data
-    volumes:
-       #container configuration
-       - /home/stefano/lavoro/expressive-graphql:/home/dockerdev/app
-       - /home/stefano/.composer:/home/dockerdev/.composer
-       - /home/stefano/.ssh:/home/dockerdev/.ssh

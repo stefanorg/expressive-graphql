@@ -6,3 +6,5 @@ coveralls-upload.json
 phpunit.xml
 vendor/
 var
+docker-compose.local.yml
+docker.env

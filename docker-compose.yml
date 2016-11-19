@@ -13,17 +13,11 @@ mysql:
     - "3306:3306"
   volumes_from:
     - data
-  environment:
-    MYSQL_DATABASE: app
-    MYSQL_USER: appuser
-    MYSQL_PASSWORD: apppwd
-    MYSQL_ROOT_PASSWORD: 123
-
+  env_file: docker.env  
 
 #Web layer
 web:
-    #Build image form docker\Dockerfile
-    build: docker
+    image: stefanorg/docker-apache-php
     ports:
         - "80:80"
     links:
@@ -31,6 +25,4 @@ web:
     volumes_from:
         - data
     privileged: true
-    environment:
-      DEV_UID: 1001
-      DEV_GID: 1001
+    env_file: docker.env
