@@ -57,6 +57,6 @@ You can send:
 
 This demo is build to show how to use php [GraphQL Middleware](https://github.com/stefanorg/graphql-middleware) with zend expressive
 
-    * GraphQL PHP Implementation: [https://github.com/Youshido/GraphQL](https://github.com/Youshido/GraphQL)
-    * GraphQL Middleware [https://github.com/stefanorg/graphql-middleware](https://github.com/stefanorg/graphql-middleware)
-    * GraphiQL Extension for Zend Expressive [https://github.com/stefanorg/zend-expressive-graphiql](https://github.com/stefanorg/zend-expressive-graphiql)
+* GraphQL PHP Implementation: [https://github.com/Youshido/GraphQL](https://github.com/Youshido/GraphQL)
+* GraphQL Middleware [https://github.com/stefanorg/graphql-middleware](https://github.com/stefanorg/graphql-middleware)
+* GraphiQL Extension for Zend Expressive [https://github.com/stefanorg/zend-expressive-graphiql](https://github.com/stefanorg/zend-expressive-graphiql)
