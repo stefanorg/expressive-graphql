@@ -5,7 +5,6 @@ use Zend\Expressive\Helper;
 return [
     'dependencies' => [
         'invokables' => [
-            \GraphQLMiddleware\Error\GraphQLErrorHandler::class => \GraphQLMiddleware\Error\GraphQLErrorHandler::class,
         ],
         'factories' => [
             Helper\ServerUrlMiddleware::class => Helper\ServerUrlMiddlewareFactory::class,
